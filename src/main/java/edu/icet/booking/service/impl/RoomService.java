@@ -2,6 +2,13 @@ package edu.icet.booking.service.impl;
 
 
 import com.phegondev.PhegonHotel.utils.Utils;
+import edu.icet.booking.dto.Response;
+import edu.icet.booking.dto.RoomDTO;
+import edu.icet.booking.entity.Room;
+import edu.icet.booking.exception.OurException;
+import edu.icet.booking.repo.BookingRepository;
+import edu.icet.booking.repo.RoomRepository;
+import edu.icet.booking.service.interfac.IRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -19,15 +26,14 @@ public class RoomService implements IRoomService {
     private RoomRepository roomRepository;
     @Autowired
     private BookingRepository bookingRepository;
-    @Autowired
-    private AwsS3Service awsS3Service;
+
 
     @Override
     public Response addNewRoom(MultipartFile photo, String roomType, BigDecimal roomPrice, String description) {
         Response response = new Response();
 
         try {
-            String imageUrl = awsS3Service.saveImageToS3(photo);
+            //String imageUrl = awsS3Service.saveImageToS3(photo);
             Room room = new Room();
             room.setRoomPhotoUrl(imageUrl);
             room.setRoomType(roomType);
