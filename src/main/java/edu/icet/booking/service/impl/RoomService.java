@@ -1,7 +1,7 @@
 package edu.icet.booking.service.impl;
 
 
-import com.phegondev.PhegonHotel.utils.Utils;
+import edu.icet.booking.utils.Utils;
 import edu.icet.booking.dto.Response;
 import edu.icet.booking.dto.RoomDTO;
 import edu.icet.booking.entity.Room;
